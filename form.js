@@ -1,28 +1,27 @@
 let a = 5;
 let b = 3;
 
+let operant1 
+let operant2 = '+';
 
-let operant = '+';
-
-switch (operant) {
+switch (operant1) {
     case 1:
-        operant = '+'
-        console.log(operant == a + b)
+        operant2 = '+'
+        console.log(operant1 == a + b)
         break;
     case 2:
-        operant = '-'
-        console.log(operant == a - b)
+        operant2 = '-'
+        console.log(operant1 == a - b)
         break;
     case 3:
-        operant = '*'
-        console.log(operant == a * b)
+        operant2 = '*'
+        console.log(operant1 == a * b)
         break;
     case 4:
-        operant = '/'
-        console.log(operant == a / b)
+        operant2 = '/'
+        console.log(operant1 == a / b)
         break;
 
-    
 }
 
-console.log(operant)
+console.log(operant1)
