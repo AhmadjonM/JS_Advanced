@@ -1,20 +1,26 @@
-var fruits = ["bannana", "orange","apple"];
-console.log(fruits[1]);
+let a = 5; 
+let b = 3; 
+let operand1; 
+let operand2 = "+-*/"; 
 
 
+let operation = "+"; 
 
-var cars = ["BMW", false,"Volkswagen","Mersedes"];
-
-var cars2 = cars;
-cars2.push("Mitsubishi");
-
-console.log(cars);
-
-let i = 0;
-while (count < cars.length) {
-        cars[i] = i;
-
-    i++;
+switch (operation) {
+    case "+":
+        operand1 = a + b;
+        break;
+    case "-":
+        operand1 = a - b;
+        break;
+    case "*":
+        operand1 = a * b;
+        break;
+    case "/":
+        operand1 = a / b;
+        break;
+    default:
+        operand1 = "Неизвестная операция";
 }
 
-console.log(cars);
+console.log(operand1); 
