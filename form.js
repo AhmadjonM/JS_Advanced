@@ -1,27 +1,20 @@
-let a = 5;
-let b = 3;
+var fruits = ["bannana", "orange","apple"];
+console.log(fruits[1]);
 
-let operant1 
-let operant2 = '+';
 
-switch (operant1) {
-    case 1:
-        operant2 = '+'
-        console.log(operant1 == a + b)
-        break;
-    case 2:
-        operant2 = '-'
-        console.log(operant1 == a - b)
-        break;
-    case 3:
-        operant2 = '*'
-        console.log(operant1 == a * b)
-        break;
-    case 4:
-        operant2 = '/'
-        console.log(operant1 == a / b)
-        break;
 
+var cars = ["BMW", false,"Volkswagen","Mersedes"];
+
+var cars2 = cars;
+cars2.push("Mitsubishi");
+
+console.log(cars);
+
+let i = 0;
+while (count < cars.length) {
+        cars[i] = i;
+
+    i++;
 }
 
-console.log(operant1)
+console.log(cars);
