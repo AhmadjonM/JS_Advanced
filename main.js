@@ -68,3 +68,62 @@ function sumArray(num) {
 }
 
 sumArray(integers); 
+
+
+ let products = [{name: "aplle", price: 100},{name: "aplle", price: 100}]
+ let priceProducts = products.map(price => ({...price, price: products.price * 10 / products.price * products.price}))
+ console.log(priceProducts);
+
+ const namePeople = [
+    { Name: "Konan", Age: 19 },
+    { Name: "John", Age: 15 },
+    { Name: "Kirill", Age: 23 }
+];
+
+function parseJSON(a) {
+    a.forEach(person => {
+        if ("Surname" in person) {
+            console.log(person["Surname"]); 
+        } else {
+            console.log("Свойство 'Surname' не найдено");
+        }
+    });
+}
+
+parseJSON(namePeople);
+
+
+
+
+const propertyValue = [{Name:"Konan",Surname:"Warwar",Age: 19},
+    {Name:"John",Surname:"Davey",Age: 15},
+    {Name:"Kirill",Surname:"Ivanov",Age: 23}]
+
+    function getProperty(a) {
+        try {
+            if (a["Surname"]) {
+                return a["Surname"]
+            }
+        } catch (error) {
+            console.log("Ошибка: свойство не найдено");
+                        
+        }
+    }
+    propertyValue.forEach(obj => {
+        console.log(getProperty(obj));
+    });
+
+    function divideNumbers(a, b) {
+        try {
+            if (b === 0 || a ==  0) {
+                throw new Error("Ошибка: деление на ноль невозможно.");
+            }
+            else{
+            return a / b;
+            }
+        } catch (error) {
+            return error.message; 
+        }
+    }
+    
+    console.log(divideNumbers(5,10));
