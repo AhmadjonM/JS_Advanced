@@ -87,35 +87,19 @@ for (let i = 0; i < studentsInfo.length; i++) {
 }
 
 //Задание 2.3: Работа с массивами в объектах.
-let storeInventory = {
-    fruits: [
-        { name: "Apple", price: 1.2 },
-        { name: "Banana", price: 0.5 },
-        { name: "Orange", price: 0.8 }
-    ],
-    vegetables: [
-        { name: "Carrot", price: 0.7 },
-        { name: "Broccoli", price: 1.5 },
-        { name: "Tomato", price: 1.0 }
-    ],
-    dairy: [
-        { name: "Milk", price: 1.1 },
-        { name: "Cheese", price: 2.5 },
-        { name: "Yogurt", price: 1.3 }
-    ],
-    bakery: [
-        { name: "Bread", price: 1.2 },
-        { name: "Croissant", price: 1.0 },
-        { name: "Bagel", price: 0.9 }
-    ],
+const store = {
+  products: [
+    { name: "Хлеб", price: 30 },
+    { name: "Молоко", price: 50 },
+    { name: "Сыр", price: 150 },
+    { name: "Яблоки", price: 70 }
+  ]
 };
 
-for (let category in storeInventory) {
-    console.log(`Категория: ${category}`);
-    storeInventory[category].forEach(item => {
-        console.log(`- ${item.name}: $${item.price}`);
-    });
-}
+store.products.forEach(product => console.log(product.name));
+const totalCost = store.products.reduce((sum, product) => sum + product.price, 0);
+console.log(`Общая стоимость всех товаров: ${totalCost} руб.`);
+
 
 //Задание 2.4: Вложенные объекты и методы.
 let car = {
