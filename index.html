@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Form</title>
+  <style>
+    *, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  font-family: sans-serif;
+  background-color: rgba(0, 255, 145, 0.222);
+  padding-top: 50px;
+}
+
+.contact-form {
+  max-width: 540px;
+  margin: 0 auto;
+  padding: 30px;
+  background-color: #fff;
+  color: #002728;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.contact-form h3 {
+  font-size: 24px;
+  margin-bottom: 18px;
+}
+
+.contact-form__name {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact-form label,
+.contact-form h6 {
+  font-weight: normal;
+  font-size: 12px;
+  margin-bottom: 5px;
+}
+
+.contact-form h6 {
+  margin-top: 15px;
+}
+
+.contact-form label span,
+.contact-form h6 span {
+  color: red;
+}
+
+.contact-form input,
+.contact-form textarea {
+  display: block;
+  width: 100%;
+  margin: 5px 0;
+  padding: 10px;
+  border: 1px solid #ccc;
+  outline: none;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.contact-form__name {
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact-form__name label {
+  width: 48%;
+}
+
+.contact-form__queryType {
+  display: flex;
+  justify-content: space-between;
+} 
+
+.contact-form__queryType label {
+  width: 48%;
+  border: 1px solid #ccc;
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.contact-form__queryType label input {
+  width: 25px;
+}
+
+.contact-form__consent {
+  display: flex;
+  align-items: center;
+}
+
+.contact-form__consent input {
+  width: 25px;
+}
+
+
+.contact-form button {
+  margin-top: 20px;
+  display: block;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  background-color: #002728;
+  color: #fff
+}
+
+  </style>
+</head>
+
+<body>
+  <form class="contact-form">
+    <h3>Contact Us</h3>
+
+    <div class="contact-form__name">
+      <label for="firstName">
+        First Name <span>*</span>
+        <input id="firstName" type="text" required>
+      </label>
+
+      <label for="lastName">
+        Last Name <span>*</span>
+        <input id="lastName" type="text" required>
+      </label>
+    </div>
+
+    <label for="email">
+      Email Address <span>*</span>
+      <input type="email">
+    </label>
+
+    <h6>Query type <span>*</span></h6>
+    <div class="contact-form__queryType">
+      <label for="queryType1">
+        <input type="radio" id="queryType1" name="queryType" required>
+        General Enquiry
+      </label>
+
+      <label for="queryType2">
+        <input type="radio" id="queryType2" name="queryType" required>
+        Support Request
+      </label>
+    </div>
+
+    <label for="message">
+      Message <span>*</span>
+      <textarea id="message" required></textarea>
+    </label>
+
+    <label for="consent" class="contact-form__consent">
+      <input type="checkbox" id="consent" required>
+      I consent to being contacted by the team <span> *</span>
+    </label>
+
+    <button type="submit">Submit</button>
+  </form>
+  <script src="./main.js"></script>
+
+</body>
+
+</html>
