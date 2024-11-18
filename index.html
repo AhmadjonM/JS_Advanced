@@ -1,172 +1,207 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact Form</title>
-  <style>
-    *, *::before, *::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Calculator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            display: flex; 
+            justify-content: center; 
+            padding: 20px; 
+            background-color: #e5f3ff;
+        }
+
+        .container { 
+            display: flex; 
+            max-width: 800px; 
+            border: 1px solid #ccc; 
+            border-radius: 10px; 
+            overflow: hidden; 
+            margin-top: 5%;
+        }
+
+        .form-section { 
+            padding: 20px; 
+            background: #fff; 
+            width: 50%;
+        }
+
+        .results-section { 
+            padding: 20px; 
+            background: #2c3e50; 
+            color: #fff; 
+            flex: 1; 
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            border-top-right-radius: 10px;
+            border-bottom-left-radius: 50px;
+        }
+
+        .results-section h3 { 
+            color: #fff; 
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .results-section .result-card {
+            background-color: #1c2a36;
+            padding: 15px 20px;
+            border-radius: 10px;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .results-section .result-card p {
+            margin: 5px 0;
+            color: #9fb9c7;
+        }
+
+        .results-section .result-card .amount {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        .contact-form__queryType {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        } 
+
+        .contact-form__queryType label {
+            width: 48%;
+            border: 1px solid #ccc;
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            border-radius: 5px;
+            cursor: pointer;
+            background: #f9f9f9;
+        }
+
+        .contact-form__queryType input {
+            margin-right: 8px;
+        }
 
 
-body {
-  font-family: sans-serif;
-  background-color: rgba(0, 255, 145, 0.222);
-  padding-top: 50px;
-}
+        label { 
+            display: block; 
+            margin-bottom: 5px; 
+            font-weight: 500;
+        }
 
-.contact-form {
-  max-width: 540px;
-  margin: 0 auto;
-  padding: 30px;
-  background-color: #fff;
-  color: #002728;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-}
+        input { 
+            width: 95%; 
+            padding: 10px; 
+            margin-bottom: 10px; 
+            border-radius: 5px; 
+            border: 1px solid silver;
+            font-size: 1em;
+        }
 
-.contact-form h3 {
-  font-size: 24px;
-  margin-bottom: 18px;
-}
+        button { 
+            background: hsl(61, 70%, 52%); 
+            color: white; 
+            border: none; 
+            cursor: pointer; 
+            border-radius: 25px;
+            font-size: 1em;
+            width: 100%; 
+            padding: 12px; 
+        }
 
-.contact-form__name {
-  display: flex;
-  justify-content: space-between;
-}
+        button:hover { 
+            background: hsl(61, 100%, 39%); 
+        }
 
-.contact-form label,
-.contact-form h6 {
-  font-weight: normal;
-  font-size: 12px;
-  margin-bottom: 5px;
-}
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
 
-.contact-form h6 {
-  margin-top: 15px;
-}
-
-.contact-form label span,
-.contact-form h6 span {
-  color: red;
-}
-
-.contact-form input,
-.contact-form textarea {
-  display: block;
-  width: 100%;
-  margin: 5px 0;
-  padding: 10px;
-  border: 1px solid #ccc;
-  outline: none;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-.contact-form__name {
-  display: flex;
-  justify-content: space-between;
-}
-
-.contact-form__name label {
-  width: 48%;
-}
-
-.contact-form__queryType {
-  display: flex;
-  justify-content: space-between;
-} 
-
-.contact-form__queryType label {
-  width: 48%;
-  border: 1px solid #ccc;
-  padding: 6px;
-  display: flex;
-  align-items: center;
-  border-radius: 5px;
-}
-
-.contact-form__queryType label input {
-  width: 25px;
-}
-
-.contact-form__consent {
-  display: flex;
-  align-items: center;
-}
-
-.contact-form__consent input {
-  width: 25px;
-}
-
-
-.contact-form button {
-  margin-top: 20px;
-  display: block;
-  width: 100%;
-  padding: 10px;
-  border: none;
-  outline: none;
-  border-radius: 5px;
-  background-color: #002728;
-  color: #fff
-}
-
-  </style>
+    </style>
 </head>
-
 <body>
-  <form class="contact-form">
-    <h3>Contact Us</h3>
+    <div class="container">
+        <div class="form-section">
+            <h2>Mortgage Calculator</h2>
+            <label for="amount">Mortgage Amount</label>
+            <input type="number" id="amount" placeholder="£" required>
+            
+            <label for="term">Mortgage Term</label>
+            <input type="number" id="term" placeholder="years" required>
+            
+            <label for="rate">Interest Rate</label>
+            <input type="number" id="rate" placeholder="%" required>
 
-    <div class="contact-form__name">
-      <label for="firstName">
-        First Name <span>*</span>
-        <input id="firstName" type="text" required>
-      </label>
+            <label>Mortgage Type</label>
+            <div class="contact-form__queryType">
+                <label for="repayment">
+                    <input type="radio" id="repayment" name="mortgageType" value="repayment" required>
+                    Repayment
+                </label>
+                <label for="interestOnly">
+                    <input type="radio" id="interestOnly" name="mortgageType" value="interestOnly" required>
+                    Interest Only
+                </label>
+            </div>
 
-      <label for="lastName">
-        Last Name <span>*</span>
-        <input id="lastName" type="text" required>
-      </label>
+            <button onclick="calculateRepayment()">Calculate Repayments</button>
+        </div>
+
+        <div class="results-section" id="results">
+            <h3 class="your_results">Your results</h3>
+            <img src="illustration-empty.svg" alt="illustration-empty.svg" style="display: block;" id="img">
+            <p>Your results are shown below based on the information you provided.</p>
+            
+            <div class="result-values" id="result-values" style="display: none;">
+                <div class="monthly">
+                    <p>Your monthly repayments</p>
+                    <h1 id="monthly-repayment">£0.00</h1>
+                </div>
+                <div class="total">
+                    <p>Total you'll repay over the term</p>
+                    <h2 id="total-repayment">£0.00</h2>
+                </div>
+            </div>
+        </div>
     </div>
+    
+    <script>
+        function calculateRepayment() {
+            const amount = parseFloat(document.getElementById('amount').value);
+            const term = parseFloat(document.getElementById('term').value);
+            const rate = parseFloat(document.getElementById('rate').value);
+            const mortgageType = document.querySelector('input[name="mortgageType"]:checked');
 
-    <label for="email">
-      Email Address <span>*</span>
-      <input type="email">
-    </label>
+            if (isNaN(amount) || amount <= 0 || isNaN(term) || term <= 0 || isNaN(rate) || rate <= 0 || !mortgageType) {
+                alert("Пожалуйста, правильно заполните все поля числами.");
+                return;
+            }
 
-    <h6>Query type <span>*</span></h6>
-    <div class="contact-form__queryType">
-      <label for="queryType1">
-        <input type="radio" id="queryType1" name="queryType" required>
-        General Enquiry
-      </label>
+            const monthlyRate = rate / 100 / 12;  //188-198 строку смог выполнить при помощи chat gpt потому что мой собственный код работал не коректно 
+            const numPayments = term * 12;
+            let monthlyPayment;
 
-      <label for="queryType2">
-        <input type="radio" id="queryType2" name="queryType" required>
-        Support Request
-      </label>
-    </div>
+            if (mortgageType.value === "repayment") {
+                monthlyPayment = (amount * monthlyRate) / (1 - Math.pow(1 + monthlyRate, -numPayments));
+            } else if (mortgageType.value === "interestOnly") {
+                monthlyPayment = amount * monthlyRate;
+            }
 
-    <label for="message">
-      Message <span>*</span>
-      <textarea id="message" required></textarea>
-    </label>
+            const totalRepayment = monthlyPayment * numPayments;
 
-    <label for="consent" class="contact-form__consent">
-      <input type="checkbox" id="consent" required>
-      I consent to being contacted by the team <span> *</span>
-    </label>
-
-    <button type="submit">Submit</button>
-  </form>
-  <script src="./main.js"></script>
-
+            document.getElementById('monthly-repayment').innerText = `£${monthlyPayment.toFixed(2)}`;
+            document.getElementById('total-repayment').innerText = `£${totalRepayment.toFixed(2)}`;
+            document.getElementById('result-values').style.display = 'block'; 
+            document.getElementById('img').style.display= 'none';
+        }
+    </script>
 </body>
-
 </html>
