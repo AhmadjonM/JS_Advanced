@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Form</title>
+  <style>
+    *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: sans-serif;
+    background-color: rgba(0, 255, 145, 0.222);
+    padding-top: 50px;
+  }
+  
+  .contact-form {
+    max-width: 540px;
+    margin: 0 auto;
+    padding: 30px;
+    background-color: #fff;
+    color: #002728;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  .contact-form h3 {
+    font-size: 24px;
+    margin-bottom: 18px;
+  }
+  
+  .contact-form__name {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .contact-form label,
+  .contact-form h6 {
+    font-weight: normal;
+    font-size: 12px;
+    margin-bottom: 5px;
+  }
+  
+  .contact-form h6 {
+    margin-top: 15px;
+  }
+  
+  .contact-form label span,
+  .contact-form h6 span {
+    color: red;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .contact-form__name {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .contact-form__name label {
+    width: 48%;
+  }
+  
+  .contact-form__queryType {
+    display: flex;
+    justify-content: space-between;
+  } 
+  
+  .contact-form__queryType label {
+    width: 48%;
+    border: 1px solid #ccc;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+  }
+  
+  .contact-form__queryType label input {
+    width: 25px;
+  }
+  
+  .contact-form__consent {
+    display: flex;
+    align-items: center;
+  }
+  
+  .contact-form__consent input {
+    width: 25px;
+  }
+  
+  
+  .contact-form button {
+    margin-top: 20px;
+    margin-left: 35px;
+    display: inline-block;
+    width: 10%; 
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #002728;
+    color: #fff;
+  }
+  
+  </style>
+</head>
+
+<body>
+  <form class="contact-form">
+    <h3>Calculator</h3>
+
+    <div class="contact-form__name">
+      <label for="operand1">
+        Operand 1 <span>*</span>
+        <input id="operand1" type="" required>
+      </label>
+
+      <label for="operand1">
+        Operand 2 <span>*</span>
+        <input id="operand2" type="text" required>
+      </label>
+    </div>
+    <button id="plusButton">
+      +
+    </button>
+
+    <button id="minusButton">
+      -
+    </button>
+
+    <button id="multiplyButton">
+      *
+    </button>
+    <button id="divideButton">
+      /
+    </button>
+    <button id="exponentiation">
+      n^
+    </button> <br>
+
+    <div id="result">Result: </div>
+  </form>
+  <script>
+    const operand1El = document.getElementById("operand1");
+const operand2El = document.getElementById("operand2");
+const plusButtonEl = document.getElementById("plusButton");
+const resultDivEl = document.getElementById("result");
+const minusButtonEl = document.getElementById("minusButton");
+const multiplyButtonEl = document.getElementById("multiplyButton");
+const divideButtonEl = document.getElementById("divideButton");
+const exponentiationEl = document.getElementById("exponentiation");
+
+function addValues(e) {
+  e.preventDefault();
+  const result = +operand1El.value + +operand2El.value;
+  resultDivEl.textContent = "Result: " + result;
+}
+
+function minusValues(e) {
+  e.preventDefault();
+  const result = +operand1El.value - +operand2El.value;
+  resultDivEl.textContent = "Result: " + result;
+}
+
+function multiplyValues(e) {
+  e.preventDefault();
+  const result = +operand1El.value * +operand2El.value;
+  resultDivEl.textContent = "Result: " + result;
+}
+
+function divideValues(e) {
+  e.preventDefault();
+  const result = +operand1El.value / +operand2El.value;
+  resultDivEl.textContent = "Result: " + result;
+}
+
+function exponentiationValues(e) {
+  e.preventDefault();
+  const result = Math.pow(+operand1El.value, +operand2El.value);
+  resultDivEl.textContent = "Result: " + result;
+}
+
+plusButtonEl.addEventListener("click", addValues);
+minusButtonEl.addEventListener("click", minusValues);
+multiplyButtonEl.addEventListener("click", multiplyValues);
+divideButtonEl.addEventListener("click", divideValues);
+exponentiationEl.addEventListener("click", exponentiationValues);
+
+  </script>
+
+</body>
+
+</html>
