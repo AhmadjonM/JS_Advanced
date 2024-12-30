@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Online Shop</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <div class="shop-header">
+      <h1>Онлайн Магазин</h1>
+      <div>
+        <a href="./add-products.html">Добавить продукт</a>
+        <a href="./admin.html">Админ панель</a>
+      </div>
+    </div>
+
+    <div class="products-container"></div>
+
+    <script>
+      const products = JSON.parse(localStorage.getItem('products'));
+
+const productsContainer = document.querySelector('.products-container');
+
+products.forEach(product => {
+  const newProduct = document.createElement('div');
+  
+  newProduct.classList.add('card');
+  newProduct.innerHTML = `
+      <img src="${product.imgUrl}" alt="product">
+      ${product.salePercent ? `<span class="sale_badge">-${product.salePercent}%</span>`: ''}
+      <div class="prices">
+        <span class="price">${product.price} с.</span>
+        ${product.oldPrice ? `<span class="old_price">${product.oldPrice} c.</span>`: ''}
+      </div>
+      <span class="title">${product.title}</span>
+      <button class="add_to_cart">
+        <img src="./assets/cart.svg" alt="cart">
+        В корзину
+      </button>
+  `;
+
+  productsContainer.appendChild(newProduct);
+})
+
+    </script>
+  </body>
+</html>
