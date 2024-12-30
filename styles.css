@@ -1,0 +1,169 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100vh;
+  font-family: sans-serif;
+  padding-top: 50px;
+}
+
+.shop-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #ffea00a0;
+  color: #000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.shop-header h1 {
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.shop-header a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  background-color: #000;
+  border: 1px solid #000;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.products-container {
+  margin-top: 100px;
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  position: relative;
+  width: 172px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.card:hover {
+  cursor: pointer;
+}
+
+.card:hover .title {
+  color: #ffbe00;
+}
+
+.card>img {
+  margin-bottom: 10px;
+}
+
+.sale_badge {
+  position: absolute;
+  top: 180px;
+  left: 0;
+  background-color: #f00;
+  color: #fff;
+  border-radius: 8px;
+  padding: 4px 6px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.prices {
+  text-align: left;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.price {
+
+  font-weight: 900;
+  color: #1a1a1a;
+}
+
+.old_price {
+  color: #999;
+  text-decoration: line-through;
+}
+
+.title {
+  width: 90%;
+  text-align: left;
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
+
+.add_to_cart, .remove, .edit {
+  width: 100%;
+  margin-bottom: 10px;
+  background-color: rgb(255, 190, 31);
+  color: #1a1a1a;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.add_to_cart:hover {
+  background-color: rgb(255, 214, 103);
+}
+
+#add-product-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+#add-product-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#add-product-form .form-group label {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+#add-product-form .form-group input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+#add-product-form .required {
+  color: red;
+}
+
+#add-product-form button[type="submit"] {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #000;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+}
